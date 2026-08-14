@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Bugs | Hackathon Project Showcase</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --accent-cyan: #00f2fe;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #000;
+            padding: 4px 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 10px 0 5px 0;
+            background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2.subtitle-h2 {
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Clean Link Styling */
+        .team-link {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .team-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .custom-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .custom-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Full Card Link Wrapper */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video Section */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Project Details */
+        .section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background-color: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Team Section Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            align-items: stretch;
+            margin-bottom: 40px;
+        }
+
+        /* Identical Card Styling */
+        .team-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 26px 20px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.2);
+        }
+
+        .team-card.clickable {
+            cursor: pointer;
+        }
+
+        /* Uniform Badges */
+        .card-badge {
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 14px;
+            border-radius: 12px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            white-space: nowrap;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            color: #000;
+        }
+
+        /* Identical Avatars */
+        .avatar {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            border: 3px solid var(--accent-cyan);
+        }
+
+        /* Member Names */
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        /* Role Pills */
+        .role-container {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .role-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <span class="badge">Hackathon Submission</span>
+        <h1>TexA</h1>
+        <h2 class="subtitle-h2">Project Showcase Video</h2>
+        <p class="subtitle">Presented by Team <a href="https://texa-lilac.vercel.app/info.html" target="_blank" class="team-link">Three Bugs</a></p>
+    </header>
+
+    <!-- Fast Embedded Streaming Video Player -->
+    <div class="video-wrapper">
+        <!-- REPLACE YOUR_YOUTUBE_UNLISTED_ID WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
+        <iframe src="https://www.youtube-nocookie.com/embed/YOUR_YOUTUBE_UNLISTED_ID?autoplay=0&rel=0&modestbranding=1" 
+                title="Hackathon Video Presentation" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Tech Stack / Tags -->
+    <div class="tech-tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">Full-Stack App</span>
+        <span class="tag">REST API</span>
+    </div>
+
+    <!-- Team Section -->
+    <h2 class="section-title">Meet Team Three Bugs</h2>
+    <div class="team-grid">
+        
+        <!-- Member 1 -->
+        <div class="team-card">
+            <span class="card-badge">🎤 Pitch Lead</span>
+            <img class="avatar" src="alvina.png" alt="Alvina Tasnim Shahid">
+            <div class="member-name">Alvina Tasnim Shahid</div>
+            <div class="role-container">
+                <span class="role-pill">Communications</span>
+                <span class="role-pill">Presenter</span>
+            </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="team-card">
+            <span class="card-badge">💡 Team Advisor</span>
+            <img class="avatar" src="sumiya.jpeg" alt="Mst. Sumiya Khanom">
+            <div class="member-name">Mst. Sumiya Khanom</div>
+            <div class="role-container">
+                <span class="role-pill">Strategic Guide</span>
+                <span class="role-pill">Project Advisor</span>
+            </div>
+        </div>
+
+        <!-- Member 3 (Clickable with Identical Flex Layout) -->
+        <div class="team-card clickable">
+            <span class="card-badge">💻 System Architect</span>
+            <a href="https://pdf-shelve.blackparrotfedora.workers.dev/me" target="_blank" class="card-link">
+                <img class="avatar" src="sunny.png" alt="Aftab Sunny">
+                <div class="member-name">Aftab Sunny</div>
+                <div class="role-container">
+                    <span class="role-pill">Lead Programmer</span>
+                    <span class="role-pill">Full-Stack Developer</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        Presented by <a href="https://texa-lilac.vercel.app/info.html" target="_blank" class="team-link">Three Bugs</a> for the Hackathon.<br>
+        Developed by <b><a href="https://pdf-shelve.blackparrotfedora.workers.dev/me" target="_blank" class="custom-link">Black Parrot</a></b>
+    </footer>
+
+</div>
+
+</body>
+</html>
