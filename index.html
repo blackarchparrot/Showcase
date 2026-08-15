@@ -6,18 +6,23 @@
     <title>Three Bugs | Hackathon Project Showcase</title>
 
     <!-- Browser Tab Favicon -->
-    <link rel="icon" type="image/png" href="icon.jpeg">
+    <link rel="icon" type="image/jpeg" href="icon.jpeg">
 
-    <!-- Facebook Messenger / Open Graph Link Preview Image -->
+    <!-- Open Graph / Facebook / Messenger / WhatsApp Link Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texa-lilac.vercel.app/">
     <meta property="og:title" content="TexA - Hackathon Project Showcase">
     <meta property="og:description" content="Project Showcase Video presented by Team Three Bugs.">
-    <meta property="og:image" content="https://texa-lilac.vercel.app/icon.jpeg">
+    <meta property="og:image" content="https://texa-lilac.vercel.app/sunny.png">
+    <meta property="og:image:secure_url" content="https://texa-lilac.vercel.app/sunny.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
 
     <!-- Twitter Card Preview -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TexA - Hackathon Project Showcase">
+    <meta name="twitter:description" content="Project Showcase Video presented by Team Three Bugs.">
     <meta name="twitter:image" content="https://texa-lilac.vercel.app/sunny.png">
 
     <style>
@@ -85,7 +90,6 @@
             font-size: 1.1rem;
         }
 
-        /* Clean Link Styling */
         .team-link {
             color: inherit;
             text-decoration: none;
@@ -106,7 +110,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Full Card Link Wrapper */
         .card-link {
             text-decoration: none;
             color: inherit;
@@ -118,7 +121,6 @@
             height: 100%;
         }
 
-        /* Video Section */
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -140,7 +142,6 @@
             border: none;
         }
 
-        /* Project Details */
         .section-title {
             font-size: 1.5rem;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
@@ -165,7 +166,6 @@
             font-size: 0.9rem;
         }
 
-        /* Team Section Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,7 +174,6 @@
             margin-bottom: 40px;
         }
 
-        /* Identical Card Styling */
         .team-card {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -199,7 +198,6 @@
             cursor: pointer;
         }
 
-        /* Uniform Badges */
         .card-badge {
             position: absolute;
             top: -11px;
@@ -217,7 +215,6 @@
             color: #000;
         }
 
-        /* Identical Avatars */
         .avatar {
             width: 95px;
             height: 95px;
@@ -228,14 +225,12 @@
             border: 3px solid var(--accent-cyan);
         }
 
-        /* Member Names */
         .member-name {
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 6px;
         }
 
-        /* Role Pills */
         .role-container {
             display: flex;
             gap: 6px;
@@ -267,7 +262,6 @@
 
 <div class="container">
 
-    <!-- Header -->
     <header>
         <span class="badge">Hackathon Submission</span>
         <h1>TexA</h1>
@@ -275,7 +269,6 @@
         <p class="subtitle">Presented by Team <a href="https://texa-lilac.vercel.app/info.html" target="_blank" class="team-link">Three Bugs</a></p>
     </header>
 
-    <!-- Fast Embedded Streaming Video Player -->
     <div class="video-wrapper">
         <iframe src="https://www.youtube-nocookie.com/embed/zlgTKJhSFLo?autoplay=0&rel=0&modestbranding=1" 
                 title="Hackathon Video Presentation" 
@@ -284,7 +277,6 @@
         </iframe>
     </div>
 
-    <!-- Tech Stack / Tags -->
     <div class="tech-tags">
         <span class="tag">JavaScript</span>
         <span class="tag">Python</span>
@@ -292,11 +284,9 @@
         <span class="tag">REST API</span>
     </div>
 
-    <!-- Team Section -->
     <h2 class="section-title">Meet Team Three Bugs</h2>
     <div class="team-grid">
         
-        <!-- Member 1 -->
         <div class="team-card">
             <span class="card-badge">🎤 Pitch Lead</span>
             <img class="avatar" src="alvina.png" alt="Alvina Tasnim Shahid">
@@ -307,7 +297,6 @@
             </div>
         </div>
 
-        <!-- Member 2 -->
         <div class="team-card">
             <span class="card-badge">💡 Team Advisor</span>
             <img class="avatar" src="1786790355261.png" alt="Mst. Sumiya Khanom">
@@ -318,7 +307,6 @@
             </div>
         </div>
 
-        <!-- Member 3 (Clickable with Identical Flex Layout) -->
         <div class="team-card clickable">
             <span class="card-badge">💻 System Architect</span>
             <a href="https://pdf-shelve.blackparrotfedora.workers.dev/me" target="_blank" class="card-link">
